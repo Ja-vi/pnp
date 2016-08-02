@@ -24,9 +24,6 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 from PyQt4.QtGui import QPrinter, QGraphicsScene, QPainter
 from PyQt4.QtCore import QRectF
 
-from .card import Card, Border
-from .deck import Deck
-
 class Printer(object):
 	"""For printing in diferent card formats and sizes the associated deck, be it to the screen or pdfs or image files"""
 

@@ -27,7 +27,7 @@ from PyQt4.QtGui import QImage, QPixmap
 from wand.image import Image
 from wand.color import Color
 
-from .card import Card
+from card import Card
 
 class Deck(object):
 	"""Container for the cards and groupal actions"""

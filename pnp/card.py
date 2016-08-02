@@ -27,8 +27,6 @@ from PyQt4.QtGui import QImage, QPixmap
 from wand.image import Image
 from wand.color import Color
 
-from .deck import Deck
-
 class Border(object):
 	"""Represents a border for the cards"""
 	black = "black"
@@ -118,7 +116,7 @@ class Card(object):
 		self.img.save(filename = filename)
 
 	def split(self, rows, cols, separation=0):
-		"""Divide this cards in *rows* by *cols* cards, and returns a deck containing them"""
+		"""Divide this cards in *rows* by *cols* cards, and returns a list"""
 		width, hight = self.img.size
 		width, hight = (int(width), int(hight))
 		cardWidth = (width - separation * (cols-1)) / cols
@@ -130,7 +128,7 @@ class Card(object):
 					clon.crop(top=i*cardHight+i*separation, width=cardWidth, left=j*cardWidth+j*separation, height=cardHight)
 					clon.reset_coords()
 					res.append(Card(image=clon))
-		return Deck(res)
+		return res
 
 	@set_changed
 	def round_corners(self):
